@@ -28,6 +28,16 @@ Complete steps in this section to connect to your Kubernetes cluster.
     - Download the kubeconfig files for your cluster.
     - Set the KUBECONFIG environment variable.
 
+1. Verify the connection to IBM Cloud and IKS cluster.
+
+    ```
+    ibmcloud target
+    ```
+
+    ```
+    kubectl config view
+    ```
+
 
 #### [Continue to Exercise 3 - Deploy the Guestbook app with Istio Proxy](../exercise-3/README.md)
 
