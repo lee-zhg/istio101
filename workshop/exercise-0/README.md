@@ -1,4 +1,4 @@
-# Lab 0c. Connect to your kubernetes environment
+# Exercise 0. Connect to Kubernetes cluster
 
 Complete steps in this section to connect to your Kubernetes cluster.
 
