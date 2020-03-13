@@ -126,7 +126,7 @@ Kiali is an open-source project that installs as an add-on on top of Istio to vi
 
 
 
-####[Continue to Exercise 4 - Telemetry](../exercise-5/README.md)
+####[Continue to Exercise 5 - Expose the service mesh with the Istio Ingress Gateway](../exercise-5/README.md)
 
 
 
