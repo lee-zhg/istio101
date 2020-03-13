@@ -14,6 +14,13 @@ Complete steps in this section to connect to your Kubernetes cluster.
 
     > **Note: replace ### with your assigned ID**
 
+1. Clone this repo.
+
+    ```
+    cd /userdata (or your preferred folder)
+    git clone https://github.com/lee-zhg/istio101
+    ```
+
 1. Login to [Kubernetes service in IBM Cloud](https://cloud.ibm.com/kubernetes/clusters).
 
 1. Select your Kubernetes cluster.
