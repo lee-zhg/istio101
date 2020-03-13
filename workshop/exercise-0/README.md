@@ -31,4 +31,6 @@ Complete steps in this section to connect to your Kubernetes cluster.
 
 #### [Continue to Exercise 3 - Deploy the Guestbook app with Istio Proxy](../exercise-3/README.md)
 
+> Note: Exercise 1 and Exercise 2 are completed for a instructor-led workshop. If you are doing these exercises outside a workshop environment, you should complete `Exercise 1` and `Exercise 2` before moving onto `Exercise 3`.
+
 
