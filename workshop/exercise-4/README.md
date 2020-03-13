@@ -39,8 +39,42 @@ You can read more about how [Istio mixer enables telemetry reporting](https://is
 
 ## View guestbook telemetry data
 
+### Jaeger
 
-#### Grafana
+1. Patch the existing tracing service to change it from a `ClusterIP` to a `NodePort` type.
+
+    ```shell
+    kubectl patch svc tracing --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]' -n istio-system
+    ```
+
+2. Find the port to access the service
+
+    ```shell
+    $ kubectl get svc tracing -n istio-system
+    NAME      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+    tracing   NodePort   172.21.36.204   <none>        80:32075/TCP   1d
+    ```
+
+    In this example, the port is 32075.
+
+3. Find the host to access the service
+
+    ```shell
+    $ ibmcloud cs workers <cluster_name>
+    OK
+    ID                                                 Public IP       Private IP    Machine Type         State    Status   Zone    Version   
+    kube-wdc07-cr1b3398b985d84e9b8e9544a91d61428a-w1   169.61.73.131   10.191.9.76   b2c.4x16.encrypted   normal   Ready    wdc07   1.11.8_1547   
+    kube-wdc07-cr1b3398b985d84e9b8e9544a91d61428a-w2   169.61.73.142   10.191.9.71   b2c.4x16.encrypted   normal   Ready    wdc07   1.11.8_1547
+    ```
+
+    Combine one of the public IPs and the port together to access the service. For example: `169.61.73.131:32075`
+
+4. From the **Services** menu, select either the **guestbook** or **analyzer** service.
+
+5. Scroll to the bottom and click on **Find Traces** button to see traces.
+
+
+### Grafana
 
 1.  Expose Grafana on the Load Balancer so you can access it over the web:
 
@@ -72,7 +106,43 @@ You can read more about how [Istio mixer enables telemetry reporting](https://is
     This Grafana dashboard provides metrics for each workload. Explore the other dashboards provided as well.
 
 
-#### Kiali
+### Prometheus
+
+1. Patch the existing tracing service to change it from a `ClusterIP` to a `NodePort` type.
+
+    ```shell
+    kubectl patch svc prometheus --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]' -n istio-system
+    ```
+
+2. Find the port to access the service
+
+    ```shell
+    $ kubectl get svc prometheus -n istio-system
+    NAME      TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+    prometheus   NodePort   172.21.36.204   <none>        80:32075/TCP   1d
+    ```
+
+    In this example, the port is 32075.
+
+3. Find the host to access the service
+
+    ```shell
+    $ ibmcloud cs workers <cluster_name>
+    OK
+    ID                                                 Public IP       Private IP    Machine Type         State    Status   Zone    Version   
+    kube-wdc07-cr1b3398b985d84e9b8e9544a91d61428a-w1   169.61.73.131   10.191.9.76   b2c.4x16.encrypted   normal   Ready    wdc07   1.11.8_1547   
+    kube-wdc07-cr1b3398b985d84e9b8e9544a91d61428a-w2   169.61.73.142   10.191.9.71   b2c.4x16.encrypted   normal   Ready    wdc07   1.11.8_1547
+    ```
+
+    Combine one of the public IPs and the port together to access the service. For example: `169.61.73.131:32075`
+
+4. In the “Expression” input box, enter: `istio_request_bytes_count`. Click Execute and then select Graph.
+
+5. Then try another more specific query: `istio_requests_total{destination_service="guestbook.default.svc.cluster.local", destination_version="2.0"}`
+
+
+
+### Kiali
 
 Kiali is an open-source project that installs as an add-on on top of Istio to visualize your service mesh. It provides deeper insight into how your microservices interact with one another, and provides features such as circuit breakers and request rates for your services.
 
@@ -123,7 +193,6 @@ Kiali is an open-source project that installs as an add-on on top of Istio to vi
     Kiali has a number of views to help you visualize your services. Click through the various tabs to explore the service graph, and the various views for workloads, applications and services.
 
     ![](../README_images/kiali.png) 
-
 
 
 ####[Continue to Exercise 5 - Expose the service mesh with the Istio Ingress Gateway](../exercise-5/README.md)
