@@ -134,9 +134,9 @@ These commands deploy the Guestbook app on to the Kubernetes cluster. Since we e
 
 ### Use Watson Tone Analyzer
 
-It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this section when you have time constraint.**
+It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this exercise by clicking the link below when you have time constraint.**
 
-#### [Continue to Exercise 4 - Telemetry](../exercise-4/README.md)
+#### To skip the rest of this exercise, clcik [Continue to Exercise 4 - Telemetry](../exercise-4/README.md)
 
 
 Watson Tone Analyzer detects the tone from the words that users enter into the Guestbook app. The tone is converted to the corresponding emoticons.
