@@ -132,9 +132,9 @@ These commands deploy the Guestbook app on to the Kubernetes cluster. Since we e
     Note that each guestbook pod has 2 containers in it. One is the guestbook container, and the other is the Envoy proxy sidecar.
 
 
-> Note: It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this exercise by clicking the link below when you have time constraint.**
-
 ### To skip the rest of this exercise, choose [Continue to Exercise 4 - Telemetry](../exercise-4/README.md)
+
+> Note: It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this exercise by clicking the link below when you have time constraint.**
 
 
 ### Use Watson Tone Analyzer
