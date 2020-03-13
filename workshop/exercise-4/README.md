@@ -67,9 +67,68 @@ You can read more about how [Istio mixer enables telemetry reporting](https://is
 4.  Select `guestbook` in the Service drop down.
 5. In a different tab, visit the guestbook application and refresh the page multiple times to generate some load.
 
-![](../README_images/grafana.png)
+    ![](../README_images/grafana.png)
 
-This Grafana dashboard provides metrics for each workload. Explore the other dashboards provided as well.
+    This Grafana dashboard provides metrics for each workload. Explore the other dashboards provided as well.
+
+
+#### Kiali
+
+Kiali is an open-source project that installs as an add-on on top of Istio to visualize your service mesh. It provides deeper insight into how your microservices interact with one another, and provides features such as circuit breakers and request rates for your services.
+
+1. Create a secret which will be used to set the login credentials for Kiali
+
+    > ```shell
+    > cat <<EOF | kubectl apply -f -
+    > apiVersion: v1
+    > kind: Secret
+    > metadata:
+    >   name: kiali
+    >   namespace: istio-system
+    >   labels:
+    >     app: kiali
+    > type: Opaque
+    > data:
+    >   username: "YWRtaW4="
+    >   passphrase: "YWRtaW4="
+    > EOF
+    > ```
+
+1.  Expose Kiali on the Load Balancer so you can access it over the web:
+
+    ```shell
+    kubectl expose deployment kiali -n istio-system --name=kiali-external --type=LoadBalancer --port=80 --target-port=20001
+    ```
+
+1.  Grab the URL to access your Kiali dashboard:
+
+    ```shell
+    kubectl get svc/kiali-external -n istio-system
+    ```
+
+    Sample output:
+    ```
+    NAME             TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)           AGE
+    kiali-external   LoadBalancer   172.21.18.146   <your_ip_here>  20001:31374/TCP   3m52s
+    ```
+    Visit the External IP to access Kiali: `http://your-ip-here/`
+1.  If you see an error message "The Kiali secret is missing...", wait a couple of minutes and hit Refresh.
+1.  Login with the following username/password: `admin/admin`.
+1. Click the "Graph" tab on the left side and select the default namespace to see the a visual service graph of the various services in your Istio mesh. You can see request rates as well by clicking the "Edge Labels" tab and choosing "Traffic rate per second".
+ 
+    > Info: You'll need to access your Guestbook application and type an entry for the graph to be generated and connected properly.
+
+1. In a different tab, visit the guestbook application and refresh the page multiple times to generate some load.
+
+Kiali has a number of views to help you visualize your services. Click through the various tabs to explore the service graph, and the various views for workloads, applications and services.
+
+    ![](../README_images/kiali.png) 
+
+
+
+####[Continue to Exercise 4 - Telemetry](../exercise-5/README.md)
+
+
 
 <!-- #### Prometheus
 
@@ -99,54 +158,4 @@ This Grafana dashboard provides metrics for each workload. Explore the other das
 5. Explore the Graph tab as well.
 6. Use Ctrl-C to exit the port-foward when you are done. -->
 
-#### Kiali
 
-Kiali is an open-source project that installs as an add-on on top of Istio to visualize your service mesh. It provides deeper insight into how your microservices interact with one another, and provides features such as circuit breakers and request rates for your services.
-
-1. Create a secret which will be used to set the login credentials for Kiali
-
-    > ```shell
-    > cat <<EOF | kubectl apply -f -
-    > apiVersion: v1
-    > kind: Secret
-    > metadata:
-    >   name: kiali
-    >   namespace: istio-system
-    >   labels:
-    >     app: kiali
-    > type: Opaque
-    > data:
-    >   username: "YWRtaW4="
-    >   passphrase: "YWRtaW4="
-    > EOF
-    > ```
-1.  Expose Kiali on the Load Balancer so you can access it over the web:
-    ```shell
-    kubectl expose deployment kiali -n istio-system --name=kiali-external --type=LoadBalancer --port=80 --target-port=20001
-```
-
-2.  Grab the URL to access your Kiali dashboard:
-
-    ```shell
-    kubectl get svc/kiali-external -n istio-system
-    ```
-
-    Sample output:
-    ```
-    NAME             TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)           AGE
-    kiali-external   LoadBalancer   172.21.18.146   <your_ip_here>  20001:31374/TCP   3m52s
-    ```
-    Visit the External IP to access Kiali: `http://your-ip-here/`
-3.  If you see an error message "The Kiali secret is missing...", wait a couple of minutes and hit Refresh.
-4.  Login with the following username/password: `admin/admin`.
-4. Click the "Graph" tab on the left side and select the default namespace to see the a visual service graph of the various services in your Istio mesh. You can see request rates as well by clicking the "Edge Labels" tab and choosing "Traffic rate per second".
-    > Info: You'll need to access your Guestbook application and type an entry for the graph to be generated and connected properly.
-5. In a different tab, visit the guestbook application and refresh the page multiple times to generate some load.
-
-Kiali has a number of views to help you visualize your services. Click through the various tabs to explore the service graph, and the various views for workloads, applications and services.
-
-![](../README_images/kiali.png) 
-
-
-
-#### [Continue to the next Exercise](../exercise-4b/README.md)
