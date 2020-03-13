@@ -12,6 +12,10 @@ Complete steps in this section to connect to your Kubernetes cluster.
     export USERNAME=user###
     ```
 
+    ```
+    export MYCLUSTER=$USERNAME-cluster
+    ```
+
     > **Note: replace ### with your assigned ID**
 
 1. Clone this repo.
