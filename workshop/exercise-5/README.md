@@ -73,7 +73,7 @@ Let's leverage this feature with Istio ingress gateway:
     export NLB_HOSTNAME=mycluster-85f044fc29ce613c264409c04a76c95d-0001.us-east.containers.appdomain.cloud
     ```
 
-1. Test the `guestbook` application with the new **NLB host name**. In the early section of this exercise, you tested the `guestbook` application via **Ingress Gateway public IP address**. Now, you can access the same application with the newly created **NLB host name**.
+1. Access the `guestbook` application with the new **NLB host name**. In the early section of this exercise, you tested the `guestbook` application via **Ingress Gateway public IP address**. Now, you can access the same application with the newly created **NLB host name**.
 
     ```
     curl $NLB_HOSTNAME
