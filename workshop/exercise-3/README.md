@@ -8,7 +8,7 @@ The Guestbook app is a sample app for users to leave comments. It consists of a 
 1.  Clone the Guestbook app into the `workshop` directory.
 
     ```shell
-    git clone -b kubecon2019 https://github.com/IBM/guestbook
+    git clone https://github.com/IBM/guestbook
     ```
 
 2. Navigate into the app directory.
@@ -133,6 +133,9 @@ These commands deploy the Guestbook app on to the Kubernetes cluster. Since we e
 
 
 ### Use Watson Tone Analyzer
+
+It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the section when you have time constraint.**
+
 Watson Tone Analyzer detects the tone from the words that users enter into the Guestbook app. The tone is converted to the corresponding emoticons.
 
 Create Watson Tone Analyzer in your own account.
