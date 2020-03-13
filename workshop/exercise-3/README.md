@@ -134,7 +134,7 @@ These commands deploy the Guestbook app on to the Kubernetes cluster. Since we e
 
 ### To skip the rest of this exercise, choose [Continue to Exercise 4 - Telemetry](../exercise-4/README.md)
 
-> Note: It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this exercise by clicking the link above when you have time constraint.**
+> Note: It's optional to deploy a `Use Watson Tone Analyzer` service. **It's recommended to skip the rest of this exercise by clicking the link above when you have time constraint. For example, when you run the the exercise in a workshop.**
 
 
 ### Use Watson Tone Analyzer
