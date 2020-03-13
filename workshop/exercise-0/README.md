@@ -1,4 +1,4 @@
-# Exercise 0. Connect to Kubernetes cluster
+# Exercise 0 - Connect to Kubernetes cluster
 
 Complete steps in this section to connect to your Kubernetes cluster.
 
@@ -28,5 +28,7 @@ Complete steps in this section to connect to your Kubernetes cluster.
     - Download the kubeconfig files for your cluster.
     - Set the KUBECONFIG environment variable.
 
+
+#### [Continue to Exercise 3 - Deploy the Guestbook app with Istio Proxy](../exercise-3/README.md)
 
 
