@@ -136,7 +136,7 @@ You can read more about how [Istio mixer enables telemetry reporting](https://is
 
     Combine one of the public IPs and the port together to access the service. For example: `169.61.73.131:32075`
 
-4. In the “Expression” input box, enter: `istio_request_bytes_count`. Click Execute and then select Graph.
+4. In the **Expression** input box, enter: `istio_request_bytes_count`. Click **Execute** and then select **Graph**.
 
 5. Then try another more specific query: `istio_requests_total{destination_service="guestbook.default.svc.cluster.local", destination_version="2.0"}`
 
@@ -183,10 +183,10 @@ Kiali is an open-source project that installs as an add-on on top of Istio to vi
     ```
     Visit the External IP to access Kiali: `http://your-ip-here/`
 1.  If you see an error message "The Kiali secret is missing...", wait a couple of minutes and hit Refresh.
+
 1.  Login with the following username/password: `admin/admin`.
-1. Click the "Graph" tab on the left side and select the default namespace to see the a visual service graph of the various services in your Istio mesh. You can see request rates as well by clicking the "Edge Labels" tab and choosing "Traffic rate per second".
- 
-    > Info: You'll need to access your Guestbook application and type an entry for the graph to be generated and connected properly.
+
+1. Click the "Graph" tab on the left side and select the default namespace to see the a visual service graph of the various services in your Istio mesh. 
 
 1. In a different tab, visit the guestbook application and refresh the page multiple times to generate some load.
 
