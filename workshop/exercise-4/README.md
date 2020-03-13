@@ -120,7 +120,7 @@ Kiali is an open-source project that installs as an add-on on top of Istio to vi
 
 1. In a different tab, visit the guestbook application and refresh the page multiple times to generate some load.
 
-Kiali has a number of views to help you visualize your services. Click through the various tabs to explore the service graph, and the various views for workloads, applications and services.
+    Kiali has a number of views to help you visualize your services. Click through the various tabs to explore the service graph, and the various views for workloads, applications and services.
 
     ![](../README_images/kiali.png) 
 
