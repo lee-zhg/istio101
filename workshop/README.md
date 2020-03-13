@@ -7,7 +7,7 @@ In this course, you can see how to install Istio alongside microservices for a s
 
 ## Objectives
 After you complete this course, you'll be able to:
-- Download and install Istio in your cluster
+- Download and install Istio in your cluster (these tasks has been completed for an instructor-led workshop)
 - Deploy the Guestbook sample app
 - Use metrics, logging, and tracing to observe services
 - Set up the Istio Ingress Gateway
@@ -18,9 +18,9 @@ After you complete this course, you'll be able to:
 ## Workshop
 You will perform the following exercises in the lab.
 
-- [Get Started - Create Account and get cluster](GETSTARTED.md)
-- [Exercise 1 - Accessing a Kubernetes cluster](exercise-1/README.md)
-- [Exercise 2 - Installing Istio](exercise-2/README.md)
+- Get Started - Create Account and get cluster(GETSTARTED.md)
+- Exercise 1 - Accessing a Kubernetes cluster(exercise-1/README.md)
+- Exercise 2 - Installing Istio(exercise-2/README.md)
 - [Exercise 3 - Deploying Guestbook with Istio Proxy](exercise-3/README.md)
 - [Exercise 4 - Observe service telemetry: metrics and tracing](exercise-4/README.md)
 - [Exercise 5 - Expose the service mesh with the Istio Ingress Gateway](exercise-5/README.md)
