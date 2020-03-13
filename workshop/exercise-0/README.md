@@ -22,11 +22,15 @@ Complete steps in this section to connect to your Kubernetes cluster.
 
     ![access-cluster](../README_images/access-cluster.png)
 
-1. In the above terminal window, complete all steps in the section `After your cluster provisions, gain access` on your Kubernetes cluster window, including
+1. The section `After your cluster provisions, gain access` on your Kubernetes cluster window, provides commands to login to your IBM Cloud account and connect to your IKS cluster.
+
+1. In the above terminal window, complete all steps in the section `After your cluster provisions, gain access`, including
 
     - Log in to your IBM Cloud account. Include the --sso option if using a federated ID.
     - Download the kubeconfig files for your cluster.
     - Set the KUBECONFIG environment variable.
+
+    > Note: Don't forget to `Step 3. Set the KUBECONFIG environment variable.` Otherwise, you won't connect to your Kubernetes cluster.
 
 1. Verify the connection to IBM Cloud and IKS cluster.
 
