@@ -8,6 +8,8 @@ The Guestbook app is a sample app for users to leave comments. It consists of a 
 1.  Clone the Guestbook app into the `workshop` directory.
 
     ```shell
+    cd ~
+    
     git clone https://github.com/IBM/guestbook
     ```
 
