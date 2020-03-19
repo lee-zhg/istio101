@@ -15,7 +15,7 @@ An Ingress Gateway resource can be created to allow external requests through th
     kubectl create -f guestbook-gateway.yaml
     ```
 
-2. Get the **EXTERNAL-IP** of the Istio Ingress Gateway.
+1. Get the **EXTERNAL-IP** of the Istio Ingress Gateway.
 
     ```shell
     kubectl get service istio-ingressgateway -n istio-system
@@ -27,12 +27,20 @@ An Ingress Gateway resource can be created to allow external requests through th
     2d
     ```
 
-3. Make note of the external IP address that you retrieved in the previous step, as it will be used to access the Guestbook app in later parts of the course. Create an environment variable called $INGRESS_IP with your IP address.
+1. Make note of the external IP address that you retrieved in the previous step, as it will be used to access the Guestbook app in later parts of the course. Create an environment variable called $INGRESS_IP with your IP address.
 
-Example:
-```
-export INGRESS_IP=169.6.1.1
-```
+    Example:
+    ```
+    export INGRESS_IP=169.6.1.1
+    ```
+
+1. Make note of the matching port of port 80, as it may be used to access the Guestbook app in later parts of the course. Create an environment variable called $INGRESS_IP with your IP address.
+
+    Example:
+    ```
+    export INGRESS_PORT=31380
+    ```
+
 
 ## Connect Istio Ingress Gateway to the IBM Cloud Kubernetes Service NLB Host Name
 
@@ -78,6 +86,8 @@ Let's leverage this feature with Istio ingress gateway:
     ```
     curl $NLB_HOSTNAME
     ```
+
+    >Note: if the command `curl $NLB_HOSTNAME` did not return the expected result, execute command `curl $NLB_HOSTNAME:$INGRESS_PORT`.
 
 1. Enable health check of the NLB host for Istio ingress gateway:
 
