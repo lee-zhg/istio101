@@ -99,7 +99,7 @@ spec:
             subset: v1
 ```
 
-To verify the A/B testing, access the sample application in a `Firefox` browser and a `non-Firefox` browser. The accessing url can be one of the following:
+To verify the A/B testing, access the sample application in a `Firefox` browser and a `non-Firefox` browser. The accessing url can be one of the following. Based on the abve rule, when accessing application in a `Firefox` browser, `version 2` should be always accessed. In a `non-Firefox` browser, only `version 1` can be accessed.
 
   ```
   content in $INGRESS_IP
