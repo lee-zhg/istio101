@@ -99,6 +99,15 @@ spec:
             subset: v1
 ```
 
+To verify the A/B testing, access the sample application in a `Firefox` browser and a `non-Firefox` browser. The accessing url can be one of the following:
+
+  ```
+  content in $INGRESS_IP
+  content in $INGRESS_IP:$INGRESS_PORT
+  content in $NLB_HOSTNAME
+  content in $NLB_HOSTNAME:$INGRESS_PORT
+  ```
+
 ![](../README_images/firefoxchrome.png)
 
 In Istio `VirtualService` rules, there can be only one rule for each service and therefore when defining multiple [HTTPRoute](https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPRoute) blocks, the order in which they are defined in the yaml matters. Hence, the original `VirtualService` rule is modified rather than creating a new rule. With the modified rule, incoming requests originating from `Firefox` browsers will go to the newer version of guestbook. All other requests fall-through to the next block, which routes all traffic to the original version of guestbook.
