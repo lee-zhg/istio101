@@ -87,7 +87,7 @@ Let's leverage this feature with Istio ingress gateway:
     curl $NLB_HOSTNAME
     ```
 
-    >Note: if the command `curl $NLB_HOSTNAME` did not return the expected result, execute command `curl $NLB_HOSTNAME:$INGRESS_PORT`.
+    >Note: if the command `curl $NLB_HOSTNAME` did not return the expected result, execute command `curl $NLB_HOSTNAME:$INGRESS_PORT` instead.
 
 1. Enable health check of the NLB host for Istio ingress gateway:
 
